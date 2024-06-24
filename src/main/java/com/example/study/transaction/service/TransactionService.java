@@ -161,4 +161,47 @@ public class TransactionService {
     }
 
 
+    /**
+     * 트랜잭션이 선언되어 있지않는 시작지점이기에
+     * 예외가발생하여도
+     * 트랜잭션이 선언된 메서드는 롤백되지않는다.
+     */
+    public void 트랜잭션은_처음시작하는_메서드를_기준으로_동작한다_정상_Case() {
+        System.out.println(" === 트랜잭션은_처음시작하는_메서드를_기준으로_동작한다_정상_Case start ===");
+
+        for (int i = 0; i < 10; i++) {
+            Author author = new Author("트랜잭션은_처음시작하는_메서드를_기준으로_동작한다_정상_Case");
+            트랜잭션은_처음시작하는_메서드를_기준으로_동작한다_정상_Case(author);
+        }
+
+        System.out.println(" === 트랜잭션은_처음시작하는_메서드를_기준으로_동작한다_정상_Case end ===");
+        throw new RuntimeException();
+    }
+
+    @Transactional
+    public void 트랜잭션은_처음시작하는_메서드를_기준으로_동작한다_정상_Case(Author author) {
+        authorRepository.save(author);
+    }
+
+
+    /**
+     * 트랜잭션이 선언되어 있기떄문에 롤백된다.
+     */
+    @Transactional
+    public void 트랜잭션은_처음시작하는_메서드를_기준으로_동작한다_예외발생_Case() {
+        System.out.println(" === 트랜잭션은_처음시작하는_메서드를_기준으로_동작한다_정상_Case start ===");
+
+        for (int i = 0; i < 10; i++) {
+            Author author = new Author("트랜잭션은_처음시작하는_메서드를_기준으로_동작한다_예외발생_Case");
+            트랜잭션은_처음시작하는_메서드를_기준으로_동작한다_예외발생_Case_1(author);
+        }
+
+        System.out.println(" === 트랜잭션은_처음시작하는_메서드를_기준으로_동작한다_정상_Case end ===");
+        throw new RuntimeException();
+    }
+
+    @Transactional
+    public void 트랜잭션은_처음시작하는_메서드를_기준으로_동작한다_예외발생_Case_1(Author author) {
+        authorRepository.save(author);
+    }
 }

@@ -55,6 +55,16 @@ public class TransactionController {
         transactionService.다른_클래스_내_트랜잭션_자식메서드에서_예외발생_Case();
     }
 
+    @PostMapping("/transaction6")
+    public void 트랜잭션은_처음시작하는_메서드를_기준으로_동작한다_정상_Case() {
+        transactionService.트랜잭션은_처음시작하는_메서드를_기준으로_동작한다_정상_Case();
+    }
+
+
+    @PostMapping("/transaction7")
+    public void 트랜잭션은_처음시작하는_메서드를_기준으로_동작한다_예외발생_Case() {
+        transactionService.트랜잭션은_처음시작하는_메서드를_기준으로_동작한다_예외발생_Case();
+    }
 
 
 }
