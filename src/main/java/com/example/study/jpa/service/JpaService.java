@@ -33,12 +33,12 @@ public class JpaService {
 
     @Transactional
     public void 벌크인서트_테스트() {
-
+        System.out.println("=== 벌크인서트_테스트 start ===");
         String sql = "INSERT INTO test (id, title, content) VALUES (?, ?, ?)";
 
         List<Test> testList = new ArrayList<>();
 
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 100000; i++) {
             Test test = new Test("id" + i, "title" + i, "content" + i);
             testList.add(test);
         }
@@ -49,7 +49,7 @@ public class JpaService {
                     ps.setString(2, test.getTitle());
                     ps.setString(3, test.getContent());
                 });
-
+        System.out.println("=== 벌크인서트_테스트 end ===");
     }
 
 
@@ -70,13 +70,24 @@ public class JpaService {
      */
 
     /**
-     * 먼저 Select 쿼리 발생 후
-     * commit 시점에 Insert 발생
+     * save 시에
+     * isNew 라면 persist
+     * isNew 가 아니라면 merge 가발생하는데
+     *
+     * 기본 디폴트가 false 이기에 merge가 동작함.
+     * merge 이기 때문에 select -> insert 가되고
+     * 만약 영속성컨텍스트에 있다면 select -> update가 나간다.
+     *
      */
     @Transactional
     public void String_ID_save쿼리가_날아가는시점() {
         System.out.println(" === save쿼리가_날아가는시점 start ===");
-        Test test = new Test("id", "title", "content");
+
+        Test findTest = testRepository.findById("id")
+                .orElseThrow(RuntimeException::new);
+        System.out.println("findTest = " + findTest);
+
+        Test test = new Test("id", "title111", "content111");
         testRepository.save(test);
         System.out.println(" === save쿼리가_날아가는시점 end ===");
     }
