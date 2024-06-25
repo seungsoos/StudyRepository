@@ -24,9 +24,5 @@ spring:
 
 
 logging:
-  file:
-    name: Idaas
-    path: /logs/idaas
-
   level:
     log4jdbc.log4j2: WARN
