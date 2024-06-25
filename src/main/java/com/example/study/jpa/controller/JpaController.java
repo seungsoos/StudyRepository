@@ -23,16 +23,6 @@ public class JpaController {
         jpaService.벌크인서트_테스트();
     }
 
-    @PostMapping("/test1")
-    public void String_ID_save쿼리가_날아가는시점() {
-        jpaService.String_ID_save쿼리가_날아가는시점();
-    }
-
-    @PostMapping("/test2")
-    public void String_ID_save_후_로그찍어기() {
-        jpaService.String_ID_save_후_로그찍어기();
-    }
-
     @PostMapping("/save_test")
     public void save_1000건_시간측정() {
         jpaService.save_1000건_시간측정();
@@ -46,6 +36,21 @@ public class JpaController {
     @PostMapping("/save_not_select")
     public void save시에_select_쿼리가_나가지않게() {
         jpaService.save시에_select_쿼리가_나가지않게();
+    }
+
+    @PostMapping("/test1")
+    public void String_ID_save쿼리가_날아가는시점() {
+        jpaService.String_ID_save쿼리가_날아가는시점();
+    }
+
+    @PostMapping("/test2")
+    public void String_ID_save_후_로그찍어기() {
+        jpaService.String_ID_save_후_로그찍어기();
+    }
+
+    @PostMapping("/test3")
+    public void 동일한_엔티티를_조건이_다르게_조회() {
+        jpaService.동일한_엔티티를_조건이_다르게_조회();
     }
 
 

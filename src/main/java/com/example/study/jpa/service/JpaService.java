@@ -153,4 +153,30 @@ public class JpaService {
         System.out.println("실행시간 = " + stopWatch.getTotalTime(TimeUnit.SECONDS));
         System.out.println(" === save시에_select_쿼리가_나가지않게 end ===");
     }
+
+
+    /**
+     * 기본키를 사용하지않고 다른 조건절로 검색시
+     * 1차 캐시를 사용하지않고 Select 쿼리가 나간다.
+     *
+     * 그이유는 1차캐시는 기본키를 통해 접근이 가능하기때문이다.
+     */
+    @Transactional(readOnly = true)
+    public void 동일한_엔티티를_조건이_다르게_조회() {
+        System.out.println("=== 동일한_엔티티를_조건이_다르게_조회 start ===");
+        Test test = testRepository.findById("id1")
+                .orElseThrow(RuntimeException::new);
+        System.out.println("test = " + test);
+
+        Test test2 = testRepository.findByTitle(test.getTitle())
+                .orElseThrow(RuntimeException::new);
+        System.out.println("test2 = " + test2);
+
+        Test test1 = testRepository.findByTitle("title1")
+                .orElseThrow(RuntimeException::new);
+        System.out.println("test1 = " + test1);
+
+
+        System.out.println("=== 동일한_엔티티를_조건이_다르게_조회 end ===");
+    }
 }
