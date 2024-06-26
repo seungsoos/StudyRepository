@@ -204,4 +204,25 @@ public class TransactionService {
     public void 트랜잭션은_처음시작하는_메서드를_기준으로_동작한다_예외발생_Case_1(Author author) {
         authorRepository.save(author);
     }
+
+    /**
+     * 부모에 try catch 잡을시
+     * 자식의 예외만 RollBack이 되고 부모는 저장된다.
+     *
+     * 하지만 자식에 try catch 를 잡을시
+     * 부모 및 자식 모두 정상 save 된다.
+     * => 자식에서 예외를 던져서 로직이 방어되는것으로 보인다.
+     */
+    @Transactional
+    public void 트랜잭션_전파_테스트_1() {
+        System.out.println("==== 트랜잭션_전파_테스트_1 start ===");
+
+        Author author = new Author("트랜잭션_전파_테스트_1");
+        Author saveAuthor = authorRepository.save(author);
+        log.info("saveAuthor = {}", saveAuthor);
+
+        transactionService2.트랜잭션_전파_테스트_1_SUB();
+
+        System.out.println("==== 트랜잭션_전파_테스트_1 end ===");
+    }
 }

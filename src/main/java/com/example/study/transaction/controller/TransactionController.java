@@ -67,4 +67,9 @@ public class TransactionController {
     }
 
 
+    @PostMapping("/transaction8")
+    public void 트랜잭션_전파_테스트_1(){
+        transactionService.트랜잭션_전파_테스트_1();
+    }
+
 }
