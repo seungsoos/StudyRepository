@@ -72,4 +72,13 @@ public class TransactionController {
         transactionService.트랜잭션_전파_테스트_1();
     }
 
+    @PostMapping("/transaction9")
+    public void 트랜잭션이_없이는_어떻게동작할까() {
+        transactionService.트랜잭션이_없이는_어떻게동작할까();
+    }
+
+    @PostMapping("/transaction10")
+    public void 트랜잭션이_없이_영속성은_관리가될까() {
+        transactionService.트랜잭션이_없이_영속성은_관리가될까();
+    }
 }

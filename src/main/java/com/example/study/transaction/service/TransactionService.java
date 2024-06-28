@@ -225,4 +225,54 @@ public class TransactionService {
 
         System.out.println("==== 트랜잭션_전파_테스트_1 end ===");
     }
+
+    /**
+     * save의 경우 내부구현체에서 @Transaction 어노테이션이 달려있다.
+     *
+     * 하지만 변경감지는 @Transaction 없다면
+     * Commit 시점이란게 없기떄문에 다시 save를 호출해야한다.
+     */
+    public void 트랜잭션이_없이는_어떻게동작할까() {
+        System.out.println(" === 트랜잭션이_없이는_어떻게동작할까 start ===");
+
+        Author author1 = authorRepository.findById(1L).orElse(null);
+        System.out.println("author1 = " + author1);
+
+        author1.setName("test");
+        authorRepository.save(author1);
+
+        System.out.println(" === 트랜잭션이_없이는_어떻게동작할까 end ===");
+    }
+
+
+    /**
+     * @Transactional
+     * 어노테이션이 없어도 영속성에서 관리가 된다.
+     *
+     * 총 select 쿼리는 한번
+     */
+    public void 트랜잭션이_없이_영속성은_관리가될까() {
+        System.out.println(" === 트랜잭션이_없이_영속성은_관리가될까 start ===");
+
+        Author author1 = authorRepository.findById(1L).orElse(null);
+        System.out.println("author1 = " + author1);
+
+        Author author2 = authorRepository.findById(1L).orElse(null);
+        System.out.println("author2 = " + author2);
+
+        트랜잭션이_없이_영속성은_관리가될까_SUB();
+        System.out.println(" === 트랜잭션이_없이_영속성은_관리가될까 end ===");
+    }
+
+    public void 트랜잭션이_없이_영속성은_관리가될까_SUB() {
+        System.out.println(" === 트랜잭션이_없이_영속성은_관리가될까_SUB start ===");
+
+        Author author1 = authorRepository.findById(1L).orElse(null);
+        System.out.println("author1 = " + author1);
+
+        Author author2 = authorRepository.findById(1L).orElse(null);
+        System.out.println("author2 = " + author2);
+
+        System.out.println(" === 트랜잭션이_없이_영속성은_관리가될까_SUB end ===");
+    }
 }
