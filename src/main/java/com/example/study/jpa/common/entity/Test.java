@@ -1,4 +1,4 @@
-package com.example.study.common.entity;
+package com.example.study.jpa.common.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

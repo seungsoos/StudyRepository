@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Slf4j
 @RequestMapping("/rate-limit/bucket")
-public class RateLimitController {
+public class BucketRateLimitController {
 
     @GetMapping("/api/test")
     public void test() {

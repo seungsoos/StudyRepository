@@ -1,7 +1,7 @@
 package com.example.study.optional.service;
 
-import com.example.study.common.entity.Author;
-import com.example.study.common.repository.AuthorRepository;
+import com.example.study.jpa.common.entity.Author;
+import com.example.study.jpa.common.repository.AuthorRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

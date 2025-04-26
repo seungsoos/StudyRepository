@@ -1,4 +1,4 @@
-package com.example.study.common.component;
+package com.example.study.jpa.common.component;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;

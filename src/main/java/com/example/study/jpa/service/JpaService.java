@@ -1,7 +1,7 @@
 package com.example.study.jpa.service;
 
-import com.example.study.common.entity.Test;
-import com.example.study.common.repository.TestRepository;
+import com.example.study.jpa.common.entity.Test;
+import com.example.study.jpa.common.repository.TestRepository;
 import com.example.study.jpa.entity.PersistableImpl;
 import com.example.study.jpa.repository.PersistableImplRepository;
 import lombok.RequiredArgsConstructor;

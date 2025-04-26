@@ -12,8 +12,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-@DisplayName("> rate-limit - bucket RateLimitController 실 API 테스트")
-class RateLimitControllerIntegrationTest {
+@DisplayName("> rate-limit - bucket BucketBucketRateLimitController 실 API 테스트")
+class BucketBucketRateLimitControllerTest {
 
     @Autowired
     private MockMvc mockMvc;

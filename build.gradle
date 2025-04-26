@@ -52,6 +52,15 @@ dependencies {
     // RateLimit
     implementation("com.bucket4j:bucket4j-core:8.7.0")
 
+    // Redis
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+
+    // Test Container
+    testImplementation 'org.springframework.boot:spring-boot-testcontainers'
+    testImplementation 'org.testcontainers:testcontainers:1.20.4'
+    testImplementation 'org.testcontainers:junit-jupiter:1.20.4'
+
+
 }
 
 tasks.named('test') {

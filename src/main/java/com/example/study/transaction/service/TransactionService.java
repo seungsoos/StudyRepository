@@ -1,9 +1,9 @@
 package com.example.study.transaction.service;
 
-import com.example.study.common.entity.Author;
-import com.example.study.common.entity.Book;
-import com.example.study.common.repository.AuthorRepository;
-import com.example.study.common.repository.BookRepository;
+import com.example.study.jpa.common.entity.Author;
+import com.example.study.jpa.common.entity.Book;
+import com.example.study.jpa.common.repository.AuthorRepository;
+import com.example.study.jpa.common.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
