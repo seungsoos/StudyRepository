@@ -1,9 +1,8 @@
-package com.example.study.ratelimit;
+package com.example.study.ratelimit.bucket;
 
 import io.github.bucket4j.Bandwidth;
 import io.github.bucket4j.Bucket;
 import io.github.bucket4j.Refill;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.time.Duration;

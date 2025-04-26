@@ -1,6 +1,6 @@
-package com.example.study.ratelimit.config;
+package com.example.study.ratelimit.bucket.config;
 
-import com.example.study.ratelimit.filter.RateLimitFilter;
+import com.example.study.ratelimit.bucket.filter.RateLimitFilter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
