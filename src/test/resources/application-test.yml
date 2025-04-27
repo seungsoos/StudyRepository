@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: test-project
+  datasource:
+    url: jdbc:log4jdbc:mysql://localhost:3307/studydb?rewriteBatchedStatements=true&
+    username: root
+    password: my-secret-pw
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+  jpa:
+    open-in-view: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        highlight_sql: true
+        use_sql_comments: true
+        dialect: org.hibernate.dialect.MySQLDialect
+        show_sql: true
+        order_inserts: true
+        order_updates: true
+        jdbc:
+          batch_size: 100
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+
+logging:
+  level:
+    log4jdbc.log4j2: WARN
